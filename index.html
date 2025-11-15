@@ -2,21 +2,50 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Realtime Circles</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+    <!-- p5.js -->
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
+
+    <style>
+      /* Prevent iOS scrolling, zooming, highlighting */
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        touch-action: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      canvas {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+    </style>
   </head>
 
   <body>
-    <!--supabase server-->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script> -->
+
+    <!-- Supabase client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <!-- Prevent iOS scroll/bounce -->
+    <script>
+      document.addEventListener("touchmove", function (e) {
+        e.preventDefault();
+      }, { passive: false });
+    </script>
+
+    <!-- p5 sketch -->
     <script src="sketch.js"></script>
+
   </body>
 </html>
