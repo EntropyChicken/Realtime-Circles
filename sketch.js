@@ -13,7 +13,7 @@ let lastSend = 0;
 const SEND_INTERVAL = 70; // ms throttle (≈ 14 updates/sec)
 
 async function setup() {
-	createCanvas(600, 400);
+	createCanvas(windowWidth, windowHeight);
 
 	// Load circles from Supabase DB
 	let { data, error } = await supabase
