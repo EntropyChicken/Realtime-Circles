@@ -14,7 +14,7 @@ const channel = supabase.channel("circles-room");
 let circles = [];
 let draggingId = null;
 let lastSend = 0;
-const SEND_INTERVAL = 70; // throttle rate
+const SEND_INTERVAL = 40; // throttle rate
 
 /* -------------------------------------------------------
    P5 SETUP
@@ -122,6 +122,7 @@ function dragCircle() {
 			const { x, y } = getPointerPosition();
 			c.x = x;
 			c.y = y;
+			sendUpdate(c);
 			return c;
 		}
 	}
